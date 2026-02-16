@@ -1,0 +1,209 @@
+body {
+  background-image: url("images/light-theme.jpg");
+  background-position: center;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 0.3s;
+  position: relative;
+}
+
+body:has(#theme-switch:checked) {
+  background-image: url("images/night-theme.png");
+  background-attachment: fixed;
+}
+
+.main-object {
+  margin: 0;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-btn { 
+  margin-right: 5px;
+  margin-top: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  background: #73C766;
+  color: white;
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+  user-select: none;
+} 
+
+.my-btn:hover {
+  background: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px #C9F76F;
+}
+
+.my-btn:active {
+  filter: brightness(130%);
+}
+
+.my-btn.primary { 
+  background: #115C06;
+}
+
+.top-left-buttons {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  align-items: center;
+  gap: 5px;
+  z-index: 1000;
+}
+
+.theme-switch {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-label {
+  position: relative;
+}
+
+.light-icon {
+  display: none;
+}
+
+.dark-icon {
+  display: inline;
+}
+
+#theme-switch:checked ~ .theme-label .light-icon {
+  display: inline;
+}
+
+#theme-switch:checked ~ .theme-label .dark-icon {
+  display: none;
+}
+
+.round-button {
+  width: 50px;
+  height: 50px;
+  background: #73C766;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px #C9F76F;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.round-button:hover {
+  background: #115C06;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px #C9F76F;
+}
+
+.round-button:active {
+  transform: scale(0.95);
+  filter: brightness(130%);
+}
+
+.my-btn.primary:hover {
+  background: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px #C9F76F;
+}
+
+.my-btn.secondary { 
+  background: #6A9F43;
+}
+
+.my-btn.secondary:hover {
+  background: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px #C9F76F;
+}
+
+.my-btn.execute { 
+  width: 110px;
+  border-radius: 15px;
+}
+
+.my-btn.execute:hover {
+  background: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px #C9F76F;
+}
+
+.result { 
+  width: 220px;
+  height: 65px;
+  margin-bottom: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 15px;
+  border: 2px solid white;
+  background: transparent;
+  text-align: right;
+  color: white;
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 800;
+  box-sizing: border-box;
+}
+
+.git-buttom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  text-align: center;
+  width: 120px;
+  height: 65px;
+}
+
+h1 {
+  color: #115C06;
+  text-align: center;
+  border-bottom: 3px solid #73C766;
+  padding-bottom: 15px;
+  margin-top: 0;
+}
+    
+details {
+  margin: 20px 0;
+  border: 2px solid #73C766;
+  border-radius: 15px;
+  overflow: hidden;
+  background: white;
+}
+    
+summary {
+  padding: 15px 20px;
+  background: #73C766;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+    
+summary:hover {
+  background: #115C06;
+}
