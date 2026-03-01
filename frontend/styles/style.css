@@ -1,0 +1,367 @@
+body {
+  background-image: url("images/light-theme.jpg");
+  background-position: center;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 0.3s;
+  position: relative;
+}
+
+body:has(#theme-switch:checked) {
+  background-image: url("images/night-theme.png");
+  background-attachment: fixed;
+}
+
+.main-object {
+  margin: 0;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-btn { 
+  margin-right: 5px;
+  margin-top: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  background: #73C766;
+  color: white;
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+  user-select: none;
+} 
+
+.my-btn:hover {
+  background: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px #C9F76F;
+}
+
+.my-btn:active {
+  filter: brightness(130%);
+}
+
+.my-btn.primary { 
+  background: #115C06;
+}
+
+.theme-switch {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-label {
+  position: relative;
+}
+
+.light-icon {
+  display: none;
+}
+
+.dark-icon {
+  display: inline;
+}
+
+#theme-switch:checked ~ .theme-label .light-icon {
+  display: inline;
+}
+
+#theme-switch:checked ~ .theme-label .dark-icon {
+  display: none;
+}
+
+.round-button {
+  width: 50px;
+  height: 50px;
+  background: #73C766;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px #C9F76F;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.round-button:hover {
+  background: #115C06;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px #C9F76F;
+}
+
+.round-button:active {
+  transform: scale(0.95);
+  filter: brightness(130%);
+}
+
+.my-btn.primary:hover {
+  background: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px #C9F76F;
+}
+
+.my-btn.secondary { 
+  background: #6A9F43;
+}
+
+.my-btn.secondary:hover {
+  background: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px #C9F76F;
+}
+
+.my-btn.execute { 
+  width: 165px;
+  border-radius: 15px;
+}
+
+.my-btn.execute:hover {
+  background: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px #C9F76F;
+}
+
+.result { 
+  width: 280px;
+  height: 65px;
+  margin-bottom: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 15px;
+  border: 2px solid white;
+  background: transparent;
+  text-align: right;
+  color: white;
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 800;
+  box-sizing: border-box;
+}
+
+.git-buttom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  text-align: center;
+  width: 120px;
+  height: 65px;
+}
+    
+details {
+  margin: 20px 0;
+  border: 2px solid #73C766;
+  border-radius: 15px;
+  overflow: hidden;
+  background: white;
+}
+    
+summary {
+  padding: 15px 20px;
+  background: #73C766;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+    
+summary:hover {
+  background: #115C06;
+}
+
+
+.site-footer {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 30px 0 15px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.footer-col h4 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.footer-col a:hover {
+  color: #73C766;
+  opacity: 1;
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.logo{
+  position: absolute;
+  top: 15px;
+  left: 40px;
+  font-size: 1.5rem;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.top-border {
+  background: white;
+  backdrop-filter: blur(10px);
+  border-bottom: 5px solid #73C766;
+  padding: 8px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.border-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.border-btn {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background: white;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 2px solid #73C766;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.border-btn:hover {
+  background: #115C06;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(115, 199, 102, 0.5);
+}
+
+.border-btn:active {
+  transform: scale(0.95);
+}
+
+.info-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+}
+
+.info-container h1 {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.info-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.info-container li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.game-wrapper {
+  position: relative;
+  width: 650px;
+  height: 450px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 2px solid #73C766;
+}
+
+.game-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+.owl-icon {
+  width: 30px;
+  height: 30px;
+}
