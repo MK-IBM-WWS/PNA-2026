@@ -590,9 +590,3 @@ curl -X PATCH http://localhost:3000/stocks/1 \
 # Удаление карточки
 curl -X DELETE http://localhost:3000/stocks/1
 ```
-
----
-
-**Автор**: [Ваше имя]  
-**Дата выполнения**: Март 2026  
-**Технологии**: Node.js, Express.js, JavaScript
