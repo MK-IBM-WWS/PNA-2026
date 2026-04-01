@@ -10,39 +10,31 @@ export class ProductPage {
     }
 
     getData() {
-        const catsData = {
+        const panelData = {
             1: { 
-                title: 'Британская кошка', 
-                description: 'Спокойная, независимая, но очень любит хозяев. Идеальный компаньон для вечеров дома.'
+                title: 'Стандартная', 
+                description: 'Обычная солнечная панель, можно крепить на кронштейн.'
             },
             2: { 
-                title: 'Мейн-кун', 
-                description: 'Огромный и дружелюбный, настоящий домашний рысь. Отлично ладит с детьми.'
+                title: 'Складная', 
+                description: 'Солнечная панель для туристических походов.'
             },
             3: { 
-                title: 'Сфинкс', 
-                description: 'Ласковый и теплый, обожает сидеть на руках. Гипоаллергенная порода.'
-            },
-            4: { 
-                title: 'Сиамская кошка', 
-                description: 'Голосистая, активная и очень преданная. Будет следовать за вами хвостиком.'
-            },
-            5: { 
-                title: 'Персидская кошка', 
-                description: 'Пушистая, спокойная и царственная. Любит лежать на коленях.'
+                title: 'Облегчённая', 
+                description: 'Солнечная панель для автодомов.'
             }
         };
 
-        const cat = catsData[this.id] || {
-            title: `Кошка #${this.id}`,
-            description: 'Очень милая кошка ждет своего хозяина!'
+        const panel = panelData[this.id] || {
+            title: `Солнечная панель #${this.id}`,
+            description: 'Экологичная и выгодная энергия'
         };
 
         return {
             id: this.id,
             src: `./components/images/${this.id}.jpg`,
-            title: cat.title,
-            text: cat.description
+            title: panel.title,
+            text: panel.description
         };
     }
 

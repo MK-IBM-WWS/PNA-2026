@@ -12,31 +12,16 @@ export class ProductComponent {
                             <img src="${data.src}" 
                                  class="card-img-top" 
                                  alt="${data.title}"
-                                 style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;"
-                                 onerror="this.src='https://placekitten.com/800/500'">
-                            
+                                 style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;">
                             <div class="card-body">
-                                <marquee behavior="scroll" 
-                                         direction="left" 
-                                         scrollamount="15"
-                                         style="font-size: 18px; 
-                                                color: red; 
-                                                background-color: white; 
-                                                padding: 15px; 
-                                                border-radius: 10px;
-                                                border: 2px solid pink;
-                                                font-weight: bold;">
-                                    Очень мягкая, пушистая и любит, когда ее гладят. 
-                                    Живёт в уютном доме и ждёт своего хозяина!
+                                <marquee behavior="scroll" direction="left" scrollamount="15"
+                                         style="font-size: 18px; color: red; background-color: white; 
+                                                padding: 15px; border-radius: 10px; border: 2px solid pink; font-weight: bold;">
+                                    Мощная солнечная панель, обеспечит Ваш дом экологичной и стабильной электроэнергией
                                 </marquee>
-                                
                                 <h2 class="card-title text-center mt-4">${data.title}</h2>
                                 <p class="card-text text-center lead">${data.text}</p>
-                                
                                 <div class="text-center mt-3">
-                                    <button class="btn btn-primary btn-lg" onclick="history.back()">
-                                        ← Вернуться к списку котиков
-                                    </button>
                                 </div>
                             </div>
                         </div>
