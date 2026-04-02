@@ -11,9 +11,7 @@ export class BackButtonComponent {
 
     getHTML() {
         return (
-            `
-            <button id="back-button" class="btn btn-secondary mb-3" type="button">← Назад</button>
-            `
+            `<button id="back-button" class="btn btn-success mb-3" type="button">Назад</button>`
         );
     }
 

@@ -3,12 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Солнечная энергия</title>
-
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        marquee, .running-text-container {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .running-text-container:hover {
+            background-color: #ffe6e6;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+        
+        .card-img-top {
+            transition: transform 0.3s ease;
+        }
+        
+        .card-img-top:hover {
+            transform: scale(1.02);
+        }
+        
+        #model-container canvas {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
     <div id="root"></div>
-    <script src="main.js" type="module"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/examples/jsm/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+    <script src="./main.js" type="module"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

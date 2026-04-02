@@ -6,7 +6,6 @@ export class ProductPage {
     constructor(parent, id) {
         this.parent = parent;
         this.id = id;
-        console.log('ProductPage создан для ID:', id);
     }
 
     getData() {
