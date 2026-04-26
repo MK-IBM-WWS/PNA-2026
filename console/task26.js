@@ -38,3 +38,5 @@ console.log(maxQualityDifference(nums)); // 84
 console.log(maxQualityDifference([1, 2, 3, 4])); // 10
 console.log(maxQualityDifference([-5, -4, -3, -2])); // 14
 console.log(maxQualityDifference([-10, 1, 2, 3])); // 16
+
+
