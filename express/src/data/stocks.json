@@ -1,26 +1,30 @@
 [
   {
     "id": 1,
-    "src": "https://putpu.jpg",
-    "title": "patch",
-    "text": "Полностью новый put"
+    "src": "https://filearchive.cnews.ru/img//rnd/2020/07/26/240.jpg",
+    "title": "Мощная солнечная батарея",
+    "text": "17 700 руб",
+    "description": "Солнечные батареи этой модели рассчитаны на всесезонное использование на крышах или стенах жилых домов."
   },
   {
     "id": 2,
-    "src": "https://ssfyddyyggddg.jpg",
-    "title": "pgddgj2ehh",
-    "text": "Полность put2 put"
+    "src": "https://kibor.ru/images/solar-panel.jpg",
+    "title": "Складная солнечная батарея",
+    "text": "3000 руб",
+    "description": "Данную солнечную батарею можно использовать как переносной источник чистой энергии."
   },
   {
     "id": 3,
-    "src": "https://i.pinimg.com/originals/c9/ea/65/c9ea654eb3a7398b1f702c758c1c4206.jpg",
-    "title": "Акция 3",
-    "text": "Такой акции вы еще не видели 3"
+    "src": "https://allpowers.ru/wp-content/uploads/2024/09/watermark_logo_sun-100-vt-2.jpg",
+    "title": "Мобильная солнечная батарея",
+    "text": "6500 руб",
+    "description": "При путешествии на автодоме можно использовать такую батарею в качестве источника электричества."
   },
   {
     "id": 4,
-    "src": "https://zzzzzzzzzzzzzzzzzz.ru",
-    "title": "My new action zzzzz",
-    "text": "Я чето натыкал"
+    "src": "https://electricalschool.info/uploads/posts/2016-06/1466528637_3.jpg",
+    "title": "Прикольная солнечная батарея",
+    "text": "9 999 999руб",
+    "description": "Она из золота что-ли?"
   }
 ]

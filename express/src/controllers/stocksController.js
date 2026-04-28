@@ -18,13 +18,13 @@ const getStockById = (req, res) => {
 };
 
 const createStock = (req, res) => {
-    const { src, title, text } = req.body;
+    const { src, title, text, description } = req.body;
     
     if (!src || !title || !text) {
         return res.status(400).json({ error: 'Не все поля заполнены' });
     }
     
-    const newStock = stocksService.create({ src, title, text });
+    const newStock = stocksService.create({ src, title, text, description });
     res.status(201).json(newStock);
 };
 
@@ -41,15 +41,15 @@ const updateStock = (req, res) => {
 
 const putStock = (req, res) => {
     const id = parseInt(req.params.id);
-    const { src, title, text } = req.body;
+    const { src, title, text, description } = req.body;
     
-    if (!src || !title || !text) {
+    if (!src || !title || !text || !description) {
         return res.status(400).json({ 
             error: 'Нужно заполнить все поля' 
         });
     }
     
-    const updatedStock = stocksService.update(id, { src, title, text });
+    const updatedStock = stocksService.update(id, { src, title, text, description });
     
     if (!updatedStock) {
         return res.status(404).json({ error: 'Карточка не найдена' });
