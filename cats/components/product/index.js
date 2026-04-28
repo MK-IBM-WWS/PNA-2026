@@ -5,25 +5,19 @@ export class ProductComponent {
 
     getHTML(data) {
         return `
-            <div class="container mt-4">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <img src="${data.src}" 
-                                 class="card-img-top" 
-                                 alt="${data.title}"
-                                 style="width: 100%; height: 500px; object-fit: cover; border-radius: 10px;">
-                            <div class="card-body">
-                                <marquee behavior="scroll" direction="left" scrollamount="15"
-                                         style="font-size: 18px; color: red; background-color: white; 
-                                                padding: 15px; border-radius: 10px; border: 2px solid pink; font-weight: bold;">
-                                    Мощная солнечная панель, обеспечит Ваш дом экологичной и стабильной электроэнергией
-                                </marquee>
-                                <h2 class="card-title text-center mt-4">${data.title}</h2>
-                                <p class="card-text text-center lead">${data.text}</p>
-                                <div class="text-center mt-3">
-                                </div>
-                            </div>
+            <div class="card mb-3" style="max-width: 800px; margin: 0 auto;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="${data.src}" 
+                             class="img-fluid rounded-start" 
+                             alt="${data.title}"
+                             style="width: 100%; height: 400px; object-fit: cover;">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h2 class="card-title">${data.title}</h2>
+                            <p class="card-text lead">${data.description}</p>
+                            <p class="card-text trail">${data.text}</p>
                         </div>
                     </div>
                 </div>

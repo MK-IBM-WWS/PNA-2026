@@ -1,32 +1,47 @@
 import { ProductCardComponent } from '../../components/product-card/index.js';
 import { ProductPage } from '../product/index.js';
+import { ajax } from '../../modules/ajax.js';
+import { apiUrls } from '../../modules/apiUrls.js';
 
 export class MainPage {
     constructor(parent) {
         this.parent = parent;
     }
 
-    getData() {
-        return [
-            {
-                id: 1,
-                src: './components/images/1.jpg',
-                title: 'Стандартная',
-                text: 'Обычная солнечная панель, можно крепить на кронштейн.'
-            },
-            {
-                id: 2,
-                src: './components/images/2.jpg',
-                title: 'Складная',
-                text: 'Солнечная панель для туристических походов.'
-            },
-            {
-                id: 3,
-                src: './components/images/3.jpg',
-                title: 'Облегченная',
-                text: 'Солнечная панель для автодомов.'
+    getData() {        
+        ajax.get(apiUrls.getCats(), (data, status, error) => {
+            if (error) {
+                console.error('Ошибка загрузки:', error);
+                this.showError('Не удалось загрузить');
+                return;
             }
-        ];
+            
+            if (status === 200 && data) {
+                this.renderData(data);
+            } else {
+                console.error('Ошибка API, статус:', status);
+                this.showError(`Ошибка загрузки (статус: ${status})`);
+            }
+        });
+    }
+
+    renderData(items) {
+        if (!items || items.length === 0) {
+            this.showError('Нет доступных товаров');
+            return;
+        }
+        
+        items.forEach((item) => {
+            const productCard = new ProductCardComponent(this.pageRoot);
+            productCard.render(item, this.clickCard.bind(this));
+        });
+    }
+
+    showError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'alert alert-danger m-3';
+        errorDiv.textContent = message;
+        this.pageRoot.appendChild(errorDiv);
     }
 
     get pageRoot() {
@@ -41,6 +56,7 @@ export class MainPage {
 
     clickCard(e) {
         const cardId = e.target.dataset.id;
+        console.log('Клик по карточке с ID:', cardId);
         const productPage = new ProductPage(this.parent, cardId);
         productPage.render();
     }
@@ -49,12 +65,18 @@ export class MainPage {
         this.parent.innerHTML = '';
         const html = this.getHTML();
         this.parent.insertAdjacentHTML('beforeend', html);
-
-        const data = this.getData();
-
-        data.forEach((item) => {
-            const productCard = new ProductCardComponent(this.pageRoot);
-            productCard.render(item, this.clickCard.bind(this));
-        });
+        
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'text-center p-5';
+        loadingDiv.innerHTML = '<div class="spinner-border text-primary" role="status"></div><p>Загрузка кошек...</p>';
+        this.pageRoot.appendChild(loadingDiv);
+        
+        this.getData();
+        
+        setTimeout(() => {
+            if (loadingDiv.parentNode) {
+                loadingDiv.remove();
+            }
+        }, 100);
     }
 }

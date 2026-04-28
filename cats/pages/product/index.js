@@ -1,41 +1,46 @@
 import { ProductComponent } from '../../components/product/index.js';
 import { BackButtonComponent } from '../../components/back-button/index.js';
 import { MainPage } from '../main/index.js';
+import { ajax } from '../../modules/ajax.js';
+import { apiUrls } from '../../modules/apiUrls.js';
 
 export class ProductPage {
     constructor(parent, id) {
         this.parent = parent;
         this.id = id;
-        console.log('ProductPage создан для ID:', id);
     }
 
     getData() {
-        const panelData = {
-            1: { 
-                title: 'Стандартная', 
-                description: 'Обычная солнечная панель, можно крепить на кронштейн.'
-            },
-            2: { 
-                title: 'Складная', 
-                description: 'Солнечная панель для туристических походов.'
-            },
-            3: { 
-                title: 'Облегчённая', 
-                description: 'Солнечная панель для автодомов.'
+        const url = apiUrls.getCatById(this.id);
+        
+        ajax.get(url, (data, status, error) => {
+            if (error) {
+                console.error('Ошибка загрузки:', error);
+                this.showError('Не удалось загрузить информацию о панели');
+                return;
             }
-        };
+            
+            if (status === 200 && data) {
+                this.renderData(data);
+            } else if (status === 404) {
+                this.showError('Панель с таким ID не найдена');
+            } else {
+                console.error('Ошибка API, статус:', status);
+                this.showError(`Ошибка загрузки (статус: ${status})`);
+            }
+        });
+    }
 
-        const panel = panelData[this.id] || {
-            title: `Солнечная панель #${this.id}`,
-            description: 'Экологичная и выгодная энергия'
-        };
+    renderData(item) {
+        const product = new ProductComponent(this.pageRoot);
+        product.render(item);
+    }
 
-        return {
-            id: this.id,
-            src: `./components/images/${this.id}.jpg`,
-            title: panel.title,
-            text: panel.description
-        };
+    showError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'alert alert-danger m-3';
+        errorDiv.textContent = message;
+        this.pageRoot.appendChild(errorDiv);
     }
 
     get pageRoot() {
@@ -61,8 +66,17 @@ export class ProductPage {
         const backButton = new BackButtonComponent(this.pageRoot);
         backButton.render(this.clickBack.bind(this));
 
-        const data = this.getData();
-        const product = new ProductComponent(this.pageRoot);
-        product.render(data);
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'text-center p-5';
+        loadingDiv.innerHTML = '<div class="spinner-border text-primary" role="status"></div><p>Загрузка</p>';
+        this.pageRoot.appendChild(loadingDiv);
+
+        this.getData();
+        
+        setTimeout(() => {
+            if (loadingDiv.parentNode) {
+                loadingDiv.remove();
+            }
+        }, 500);
     }
 }
